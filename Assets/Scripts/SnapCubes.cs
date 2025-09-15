@@ -17,20 +17,20 @@ public class SnapCubes : MonoBehaviour
     {
         OnSnapAllCubesStart?.Invoke();
 
-        MainCube.transform.DOMove(new Vector3(-4, 0, 0), 2f).SetEase(Ease.OutSine);
-        SubCube1.transform.DOMove(new Vector3(-2, 0, 0), 2f).SetEase(Ease.OutSine);
-        SubCube2.transform.DOMove(new Vector3(0, 0, 0), 2f).SetEase(Ease.OutSine);
-        SubCube3.transform.DOMove(new Vector3(2, 0, 0), 2f).SetEase(Ease.OutSine);
-        SubCube4.transform.DOMove(new Vector3(4, 0, 0), 2f).SetEase(Ease.OutSine);
+        MainCube.transform.DOMove(new Vector3(-7.2f, 0.6f, 0), 2f).SetEase(Ease.OutSine);
+        SubCube1.transform.DOMove(new Vector3(-3.6f, 0.6f, 0), 2f).SetEase(Ease.OutSine);
+        SubCube2.transform.DOMove(new Vector3(0, 0.6f, 0), 2f).SetEase(Ease.OutSine);
+        SubCube3.transform.DOMove(new Vector3(3.6f, 0.6f, 0), 2f).SetEase(Ease.OutSine);
+        SubCube4.transform.DOMove(new Vector3(7.2f, 0.6f, 0), 2f).SetEase(Ease.OutSine);
     }
 
     public void UnsnapAllCubes()
     {
-        MainCube.transform.DOMove(new Vector3(0, 0, 0), 2f).SetEase(Ease.OutSine);
-        SubCube1.transform.DOMove(new Vector3(-5, 3, 0), 2f).SetEase(Ease.OutSine);
-        SubCube2.transform.DOMove(new Vector3(-5, -3, 0), 2f).SetEase(Ease.OutSine);
-        SubCube3.transform.DOMove(new Vector3(5, 3, 0), 2f).SetEase(Ease.OutSine);
-        SubCube4.transform.DOMove(new Vector3(5, -3, 0), 2f).SetEase(Ease.OutSine);
+        MainCube.transform.DOMove(new Vector3(0, 0.6f, 0), 2f).SetEase(Ease.OutSine);
+        SubCube1.transform.DOMove(new Vector3(-4.5f, 2.85f, 0), 2f).SetEase(Ease.OutSine);
+        SubCube2.transform.DOMove(new Vector3(-4.5f, -1.13f, 0), 2f).SetEase(Ease.OutSine);
+        SubCube3.transform.DOMove(new Vector3(4.5f, 2.85f, 0), 2f).SetEase(Ease.OutSine);
+        SubCube4.transform.DOMove(new Vector3(4.5f, -1.13f, 0), 2f).SetEase(Ease.OutSine);
 
         OnCompleteUnsnapAllCubes?.Invoke();
     }

@@ -22,7 +22,7 @@ public abstract class CubeBase : MonoBehaviour
 
     public void SetUpColour()
     {
-        displayMaterial.color = displayColour;
         letterMaterial.color = letterColour;
+        displayMaterial.color = displayColour;        
     }
 }

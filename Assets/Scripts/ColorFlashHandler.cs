@@ -1,20 +1,14 @@
 using System;
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
 public class ColorFlashHandler : MonoBehaviour
-{
+{   
+    private bool isFlashing = false;
+
     public event Action OnColorFlashFinished;
 
-    bool isFlashing = false;
-
-    public void ShowFlash(FlashConfiguration flashConfig)
-    {
-        StartCoroutine(FlashColour(flashConfig));
-    }
-
-
-    IEnumerator FlashColour(FlashConfiguration flashConfig)
+    private IEnumerator FlashColour(FlashConfiguration flashConfig)
     {
         Material displayMaterial = flashConfig.displayMaterial;
         Color originalColour = displayMaterial.color;
@@ -25,14 +19,13 @@ public class ColorFlashHandler : MonoBehaviour
         if (!isFlashing || !flashConfig.isMainCube)
         {
             isFlashing = true;
-            displayMaterial.SetColor("_Color", displayMaterial.color * 3.0f);
-
+            
 
             for (int i = 0; i <= numberOfFlashes; i++)
             {
-                displayMaterial.SetFloat("_GlowAmountIntensity", 3);
+                displayMaterial.SetColor("_Color", displayMaterial.color * 1.5f);
                 yield return new WaitForSeconds(flashSpeed);
-                displayMaterial.SetFloat("_GlowAmountIntensity", 1);
+                displayMaterial.SetColor("_Color", originalColour);
                 yield return new WaitForSeconds(flashSpeed);
             }
 
@@ -44,6 +37,11 @@ public class ColorFlashHandler : MonoBehaviour
             yield return null;
         }    
        
+    }
+
+    public void ShowFlash(FlashConfiguration flashConfig)
+    {
+        StartCoroutine(FlashColour(flashConfig));
     }
 
     public bool CanCubeFlash() 

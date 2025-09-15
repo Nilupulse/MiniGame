@@ -21,6 +21,5 @@ public class SnapCubeCustomEditor : Editor
         {
             snapCubes.UnsnapAllCubes();
         }
-
     }
 }
